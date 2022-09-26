@@ -35,7 +35,7 @@ Write-Output "Access Token for a System Managed Service Account"
 Write-Output $systemaccessToken
 
 # Querying the Graph API with a User ClientID
-$userResponse = Invoke-RestMethod -Method Get -Uri "$($env:IDENTITY_ENDPOINT)?resource=https://graph.microsoft.com/&clientid=$ClientId&api-version=$apiVersion" -Headers $headers
+$userResponse = Invoke-RestMethod -Method Get -Uri "$($env:IDENTITY_ENDPOINT)?resource=$resourceURI/&clientid=$ClientId&api-version=$apiVersion" -Headers $headers
 
 # This response should give us a User Bearer Token for later use in Graph API calls
 $useraccessToken = $userResponse.access_token
